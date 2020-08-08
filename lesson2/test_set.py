@@ -3,23 +3,16 @@ import pytest
 # тестируемый метод set.add()
 def test_set_1(fixture_return_set_and_len, fixture_return_element_with_params):
     print('\nTEST 1. Проверяю, что при добавлении элемента в множество увеличивается длина множества.')
-#    print(fixture_return_set_and_len)
-#    print(fixture_return_element_with_params)
-    #   проверить, не является ли добавляемый элемент уже членом множества
     if fixture_return_element_with_params not in fixture_return_set_and_len[0]:
         fixture_return_set_and_len[0].add(fixture_return_element_with_params)
- #       print('+1!!!')
         assert len(fixture_return_set_and_len[0]) == fixture_return_set_and_len[1] + 1
 
 
 # тестируемый метод set.discard()
 def test_set_2(fixture_return_set_and_len, fixture_return_element_with_params):
     print('\nTEST 2. Проверяю, что при удалении элемента из множества длина множества уменьшается.')
-#    print(fixture_return_element_with_params)
-    #   проверить, является ли удаляемый элемент членом множества
     if fixture_return_element_with_params in fixture_return_set_and_len[0]:
         fixture_return_set_and_len[0].discard(fixture_return_element_with_params)
-#        print('-1!!!')
         assert len(fixture_return_set_and_len[0]) == fixture_return_set_and_len[1] - 1
 
 
@@ -38,10 +31,9 @@ def test_set_4(fixture_return_set_and_len, fixture_return_list_with_params):
     assert len(union_result) <= len(second_set) + len(fixture_return_set_and_len[0])
 
 
-# тестируемый метод set.issubset()   issuperset()
+# тестируемый метод set.issuperset()
 def test_set_5(fixture_return_set_and_len, fixture_return_list_with_params):
     print('\nTEST 5. Проверяю, что результатом проверки на подмножество является True или False.')
     second_set = set(fixture_return_list_with_params)
     result = fixture_return_set_and_len[0].issuperset(second_set)
-#    print(result)
-    assert (result == True) or (result == False)
+    assert result == True or result == False

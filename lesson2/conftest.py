@@ -13,7 +13,6 @@ def fixture_return_list_with_params(request):
     return request.param
 
 new_elements = ('grape', 'banana', 'fig', 'pear')
-#new_elements = ('berry', 'fig', 'pear')
 
 @pytest.fixture(params=new_elements)
 def fixture_return_element_with_params(request):
@@ -25,6 +24,7 @@ def fixture_return_element_with_params(request):
 def fixture_return_set_and_len(fixture_return_list_and_len):
     my_set = set(fixture_return_list_and_len[0])
     return my_set, len(my_set)
+
 
 # ----- fixtures for dicts -----
 @pytest.fixture
@@ -38,8 +38,3 @@ colors = ('red', 'orange', 'blue', 'purple', 'metallic')
 def fixture_return_color(request):
     return request.param
 
-# ----- fixtures for string -----
-@pytest.fixture
-def fixture_return_string():
-    my_string = 'No bees no honey, no work no money.'
-    return my_string
